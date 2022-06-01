@@ -7,10 +7,11 @@ import styles from './style';
 
 //importando os componentes
 import Titulo_menu from '../../components/Titulo_menu/index'
-import Titulo_jogo from '../../components/Titulo_jogo/index'
 import Titulo_ganhador from '../../components/Titulo_ganhador/index'
 import Subtitulo_menu from '../../components/Subtitulo_menu/index'
-
+import {Img} from '../../components/Img/index'
+import Link from '../../components/Link/index'
+import Footer from '../../components/Footer/index'
 
 export default function Sistema() {
 
@@ -128,7 +129,7 @@ export default function Sistema() {
       return (
         <View style={styles.container}>
 
-          
+          <Img/>
           <Titulo_menu/>
           <Subtitulo_menu/>
 
@@ -153,6 +154,10 @@ export default function Sistema() {
           </TouchableOpacity>
 
           </View>
+
+          <Link/>
+
+          <Footer/>
           
         </View>
       );
@@ -219,8 +224,9 @@ export default function Sistema() {
               //caso as jogadas sejam 0 = nada ninguem ganha
               ganhador === '' && 
             <>
+              <Img/>
               <Text style={styles.ganhador}>Deu velha</Text>
-              <Text style={styles.ganhador}>nehum ganhador</Text>
+              <Text style={styles.ganhador}>nenhum ganhador</Text>
             </>
           }
           {

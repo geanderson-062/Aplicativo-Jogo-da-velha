@@ -55,6 +55,13 @@ const styles = StyleSheet.create( {
 
   textobotaoVoltar: { 
       color: "#fff",
+      fontWeight:'bold',
+  },
+
+  ganhador: {
+      fontSize: 30,
+      color: "#fff",
+      fontWeight:'bold',
   }
   
   });

@@ -53,10 +53,56 @@ export default function Sistema() {
 
     //jogando o jogo 
     function jogar (linha,coluna){ 
+
+       //iniandoo o jogo
        tabuleiro[linha][coluna] = jogadorAtual;
        setTabuleiro([...tabuleiro]);
 
+       //dizendo quem e o jogado 1 
        setJogadorAtual(jogadorAtual == 'X' ? 'O' : "X");
+
+       //dizendo quem e o ganhador 
+       verificarGanhador (tabuleiro,linha,coluna);
+
+    }
+
+    //verificando o ganhador 
+    function verificarGanhador(tabuleiro,linha,coluna){
+
+      //caso seja na linha execute isso
+      if(tabuleiro[linha][0] !=='' && tabuleiro[linha][0] === tabuleiro[linha][1] && tabuleiro[linha][1] === tabuleiro[linha][2]){
+        return  finalizarJogo(tabuleiro[linha][0]);
+      }
+
+      //caso seja na coluna execute isso
+      if(tabuleiro[0][coluna] !=='' && tabuleiro[0][coluna] === tabuleiro[1][coluna] && tabuleiro[1][coluna] === tabuleiro[2][coluna] ){
+        return  finalizarJogo(tabuleiro[0][coluna]);
+      }
+
+      //caso seja na diagonal 1 {esquerda para direita} execute isso
+      if(tabuleiro[0][0] !=='' && tabuleiro[0][0] === tabuleiro[1][1] && tabuleiro[1][1] === tabuleiro[2][2] ){
+        return  finalizarJogo(tabuleiro[0][0]);
+      }
+
+      //caso seja na diagonal 2 {direita para esquerda} execute isso
+      if(tabuleiro[0][2] !=='' && tabuleiro[0][2] === tabuleiro[1][1] && tabuleiro[1][1] === tabuleiro[2][0] ){
+        return  finalizarJogo(tabuleiro[0][2]);
+      }
+
+      //caso contrario e velha nenhum ganhador 
+      if((jogadasRestantes - 1) === 0){
+        return  finalizarJogo('');   
+      }
+
+      //jogo não finalizado
+      setJogadasRestantes((jogadasRestantes -1));
+
+    }
+
+    //finalizando o jogo
+    function finalizarJogo (jogador){
+      setGanhador(jogador);
+      setTela('ganhador');
     }
 
     //validando a tela que vai ser utilizada 
@@ -128,11 +174,16 @@ export default function Sistema() {
                         linha.map((coluna,numeroColuna) => {
                             return(
                                 <TouchableOpacity 
-
+                                //numero da coluna selecionada 
                                 key={numeroColuna}
+                                //ativar constante 
                                 onPress={() => jogar(numeroLinha,numeroColuna)}
-                                style={styles.boxJogo}>
-                      
+                                //style do campo
+                                style={styles.boxJogo}
+                                //desativar botão com 1 click
+                                disabled= {coluna !=='' }
+                                >
+                                
                                   <Text style={coluna === 'X' ?  styles.jogadorX : styles.jogadorO }>{coluna}</Text>
                       
                                 </TouchableOpacity>
@@ -161,7 +212,40 @@ export default function Sistema() {
       return (
         <View style={styles.container}>
           
-          <Text>ganhador</Text>
+          <Titulo_menu/>
+          <Titulo_ganhador/>
+
+          {
+              //caso as jogadas sejam 0 = nada ninguem ganha
+              ganhador === '' && 
+            <>
+              <Text style={styles.ganhador}>Deu velha</Text>
+              <Text style={styles.ganhador}>nehum ganhador</Text>
+            </>
+          }
+          {
+              //caso contrario alguem ganhou
+              ganhador !== '' && 
+
+            <>
+
+              <Text style={styles.ganhador}>Ganhador</Text>
+
+              <View style={styles.boxJogo}>
+                                
+              <Text style={ganhador === 'X' ?  styles.jogadorX : styles.jogadorO }>{ganhador}</Text>
+                      
+              </View>
+
+            </>
+
+          }
+
+          <TouchableOpacity 
+          onPress={() => setTela('menu')}
+          style={styles.botaoVoltar}>
+            <Text style={styles.textobotaoVoltar}>Voltar para o menu</Text>
+          </TouchableOpacity>
 
         </View>
       );

@@ -10,7 +10,7 @@ export default function Titulo_ganhador() {
       
       <View >
 
-        <Text style={styles.textTitle}>O que é uma criptomoeda ?</Text>
+        <Text style={styles.textTitle}>Resultado do jogo</Text>
 
       </View>
 

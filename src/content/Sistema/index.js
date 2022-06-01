@@ -2,6 +2,9 @@
 import {  Text, View, TouchableOpacity } from 'react-native';
 import React, {useState} from 'react'
 
+//importando os icones para tabbar
+import { Feather} from '@expo/vector-icons';
+
 //importando o style
 import styles from './style'; 
 
@@ -204,7 +207,9 @@ export default function Sistema() {
           <TouchableOpacity 
           onPress={() => setTela('menu')}
           style={styles.botaoVoltar}>
-            <Text style={styles.textobotaoVoltar}>Voltar para o menu</Text>
+            <Text style={styles.textobotaoVoltar}>Voltar para o menu <Feather name="corner-up-left" size={20} color={"#fff"}/>
+            </Text>
+            
           </TouchableOpacity>
 
         </View>
@@ -250,7 +255,9 @@ export default function Sistema() {
           <TouchableOpacity 
           onPress={() => setTela('menu')}
           style={styles.botaoVoltar}>
-            <Text style={styles.textobotaoVoltar}>Voltar para o menu</Text>
+            <Text style={styles.textobotaoVoltar}>Voltar para o menu <Feather name="corner-up-left" size={20} color={"#fff"}/>
+            </Text>
+            
           </TouchableOpacity>
 
         </View>

@@ -13,8 +13,8 @@ const styles = StyleSheet.create( {
 
   //box dos botões
   boxJogo: {
-    width: 120,
-    height: 120,
+    width: 100,
+    height: 100,
     backgroundColor: "#ddd",//cor do box X e O 
     alignItems: 'center',
     justifyContent: 'center',
@@ -26,8 +26,7 @@ const styles = StyleSheet.create( {
   //opção X 
   jogadorX: {
     fontSize: 80,
-    color: "#553fda",
-    
+    color: "#553fda", 
   },
 
   //opção O 
@@ -39,6 +38,23 @@ const styles = StyleSheet.create( {
   ladoAlado:{
     flexDirection: 'row',
     marginTop: 10,
+  },
+
+  botaoVoltar: { 
+    borderRadius: 50, 
+    alignItems: "center",
+    justifyContent: "center",
+    width: "52%",
+    height: 50,
+    backgroundColor: "#4b204b",
+    paddingTop: 14,
+    paddingBottom: 14,
+    marginLeft: 12,
+    marginTop: 30,  
+  },
+
+  textobotaoVoltar: { 
+      color: "#fff",
   }
   
   });

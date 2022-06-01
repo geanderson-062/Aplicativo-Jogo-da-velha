@@ -17,7 +17,49 @@ export default function Sistema() {
     //carregar primeira tela menu
     const [tela , setTela] = useState('menu');
 
-    //validando a tela 
+    //tela do jogo
+    const [jogadorAtual, setJogadorAtual] = useState('');
+
+    //matriz do jogo
+    const [tabuleiro, setTabuleiro] = useState([]);
+
+    //saber se teve jogadas restantes 
+    const [jogadasRestantes, setJogadasRestantes] = useState(0);
+
+    //tela de ganhador
+    const [ganhador, setGanhador] = useState('');
+
+    //iniciar o jogo 
+    function iniciarJogo(jogador){ 
+
+        //jogador selecionado inicia jogo
+        setJogadorAtual(jogador);
+
+        //matriz 3x3 = 9 jogadas
+        setJogadasRestantes(9);
+
+        //tabuleiro utilizado
+        setTabuleiro([
+             
+            //3x3 matriz no array
+            ['','',''],
+            ['','',''],
+            ['','',''],
+        ]);
+
+        //carregando tela do jogo 
+        setTela('jogo');
+    }
+
+    //jogando o jogo 
+    function jogar (linha,coluna){ 
+       tabuleiro[linha][coluna] = jogadorAtual;
+       setTabuleiro([...tabuleiro]);
+
+       setJogadorAtual(jogadorAtual == 'X' ? 'O' : "X");
+    }
+
+    //validando a tela que vai ser utilizada 
     switch (tela) {
 
       //caso seja menu exbir menu
@@ -46,12 +88,22 @@ export default function Sistema() {
 
           <View style={styles.ladoAlado}>
 
-          <TouchableOpacity style={styles.boxJogo}>
+          <TouchableOpacity 
+          //iniciar jogo com o X
+          onPress={() => iniciarJogo('X')}
+          style={styles.boxJogo}>
+
             <Text style={styles.jogadorX}>X</Text>
+
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.boxJogo}>
+          <TouchableOpacity 
+          //iniciar jogo com o O
+          onPress={() => iniciarJogo('O')}
+          style={styles.boxJogo}>
+
             <Text style={styles.jogadorO}>O</Text>
+
           </TouchableOpacity>
 
           </View>
@@ -66,8 +118,39 @@ export default function Sistema() {
       return (
         <View style={styles.container}>
 
-          <Text>jogo</Text>
+         <Titulo_menu/>
+
+         {
+             tabuleiro.map((linha,numeroLinha) => {
+               return(
+                <View key={numeroLinha} style={styles.ladoAlado}>
+                    {
+                        linha.map((coluna,numeroColuna) => {
+                            return(
+                                <TouchableOpacity 
+
+                                key={numeroColuna}
+                                onPress={() => jogar(numeroLinha,numeroColuna)}
+                                style={styles.boxJogo}>
+                      
+                                  <Text style={coluna === 'X' ?  styles.jogadorX : styles.jogadorO }>{coluna}</Text>
+                      
+                                </TouchableOpacity>
+                            )
+                        })
+                    }
+
+                </View>
+               )
+           })
+        }
           
+          <TouchableOpacity 
+          onPress={() => setTela('menu')}
+          style={styles.botaoVoltar}>
+            <Text style={styles.textobotaoVoltar}>Voltar para o menu</Text>
+          </TouchableOpacity>
+
         </View>
       );
     }

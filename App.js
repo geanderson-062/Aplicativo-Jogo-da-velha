@@ -1,84 +1,24 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import React, {useState} from 'react'
+//importar os componentes que vamos precisar
+import { StatusBar, View  } from 'react-native';
 
-//importando os componentes
-import Titulo_menu from './src/components/Titulo_menu/index'
-import Titulo_jogo from './src/components/Titulo_jogo/index'
-import Titulo_ganhador from './src/components/Titulo_ganhador/index'
+//importando o sistema do jogo
+import Sistema from './src/content/Sistema';
+
+//backgroundColor cor da barrado superior com os icones
+//barStyle cor dos icones na barra superior // estatusbar
 
 export default function App() {
+  return (
 
-    //carregar primeira tela menu
-    const [tela , setTela] = useState('menu');
+    //aqui importamos o sistema de valegacao e definimos o statusbar
+    <View  style={{flex: 1}}>
+            <StatusBar 
+             backgroundColor="#800080" 
+             barStyle="light-content" />
+            <Sistema/>
+    </View>
 
-    //validando a tela 
-    switch (tela) {
-
-      //caso seja menu exbir menu
-      case 'menu':
-        return getTelaMenu();
-
-      //caso seja jogo exbir jogo
-      case 'jogo':
-        return getTelaJogo();
-
-      //caso seja ganhador exbir ganhador
-      case 'ganhador':
-        return getTelaGanhador();
-        
-    }
-
-    //tela de menu
-    function getTelaMenu(){
-
-      return (
-        <View style={styles.container}>
-
-          <StatusBar style="auto" />
-          <Titulo_menu/>
-          
-        </View>
-      );
-    }
-
-    //tela de jogo
-    function getTelaJogo(){
-
-      return (
-        <View style={styles.container}>
-
-          <StatusBar style="auto" />
-          <Text>jogo</Text>
-          
-        </View>
-      );
-    }
-
-    //tela de ganhador 
-    function getTelaGanhador(){
-
-      return (
-        <View style={styles.container}>
-          
-          <StatusBar style="auto" />
-          <Text>ganhador</Text>
-
-        </View>
-      );
-    }
-    
+  );
+}
 
 
-
-    }
-
-//style
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

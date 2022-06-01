@@ -6,10 +6,10 @@ const styles = StyleSheet.create( {
   textTitle:{
 
       //cor do titulo e tamanho e tipo da fonte
-      color:'#7fff00',
-      fontSize:35,
+      color:'#fff',
+      fontSize:20,
       fontWeight:'bold',
-      marginTop: 20,
+      marginTop: 10,
   },
   
   });

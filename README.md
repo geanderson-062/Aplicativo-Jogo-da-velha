@@ -2,8 +2,6 @@
 #Jogo da Velha
 
 Classico jogo da velha para dispositivos moveis, Desenvolvido com React.js
-
-
 ## Autores
 
 - [@geanderson Ferreira](https://github.com/geanderson-062)
@@ -17,10 +15,11 @@ Designer |
 
 | Cor               | Hexadecimal                                                |
 | ----------------- | ---------------------------------------------------------------- |
-| Cor primaria       | ![#800080](https://via.placeholder.com/10/0a192f?text=+) #800080 |
-| Cor Secundaria       | ![#4b204b](https://via.placeholder.com/10/f8f8f8?text=+) #4b204b |
-| Cor terciaria       | ![#ffffff](https://via.placeholder.com/10/00b48a?text=+) #ffffff |
-| Cor Titulo       | ![#7fff00](https://via.placeholder.com/10/00b48a?text=+) #7fff00 |
+| Cor primaria       | ![#800080](https://via.placeholder.com/10/#800080?text=+) #800080 |
+| Cor Secundaria       | ![#4b204b](https://via.placeholder.com/10/#4b204b?text=+) #4b204b |
+| Cor terciaria       | ![#ffffff](https://via.placeholder.com/10/#ffffff?text=+) #ffffff |
+| Cor Titulo       | ![#7fff00](https://via.placeholder.com/10/#7fff00?text=+) #7fff00 |
+
 
 
 ## Tecnologias utilizadas
@@ -29,8 +28,6 @@ Designer |
   <img align="center" alt="Js" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-plain.svg">
   <img align="center" alt="React" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg">
 </div>
-
-
 ## Dependencias
 
   "dependencies": {
@@ -44,6 +41,7 @@ Designer |
   },
 
 
+    
 ## Designer
 
 ![icon_menu](https://github.com/geanderson-062/app-Jogo-da-velha_react-native/blob/main/assets/img_velha.png)

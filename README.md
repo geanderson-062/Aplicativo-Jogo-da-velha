@@ -1,7 +1,8 @@
 
-#Jogo da Velha
+# Jogo da Velha
 
-Classico jogo da velha para dispositivos moveis, Desenvolvido com React.js
+Classico jogo da velha para dispositivos moveis, Desenvolvido com React Native
+
 ## Autores
 
 - [@geanderson Ferreira](https://github.com/geanderson-062)
